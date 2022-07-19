@@ -64,21 +64,27 @@ clock = setInterval(function () {
 document.getElementById('stopPlay').addEventListener('click', 
     function(){
         clearInterval(clock);
+        clock = undefined;
     }
 );
 
 document.getElementById('startPlay').addEventListener('click', 
     function(){
-        clock = setInterval(function () {
-            opacityDom[attiva].classList.remove('opacity');
-            imgList[attiva].classList.remove('show');
-            attiva++
-            if(attiva >= imgList.length){
-                attiva = 0;
-            }
-            opacityDom[attiva].classList.add('opacity');
-            imgList[attiva].classList.add('show');
-        }, 2000);
+        if (clock == undefined){
+            clock = setInterval(function () {
+                opacityDom[attiva].classList.remove('opacity');
+                imgList[attiva].classList.remove('show');
+                attiva++
+                if(attiva >= imgList.length){
+                    attiva = 0;
+                }
+                opacityDom[attiva].classList.add('opacity');
+                imgList[attiva].classList.add('show');
+            }, 2000);
+
+
+        }
+        
         
     }
 );
