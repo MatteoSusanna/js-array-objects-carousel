@@ -62,6 +62,40 @@ const opacityDom = document.getElementsByClassName('card')
 imgList[attiva].classList.add('show');
 opacityDom[attiva].classList.add('opacity');
 
+let clock;
+clock = setInterval(function () {
+    opacityDom[attiva].classList.remove('opacity');
+    imgList[attiva].classList.remove('show');
+    attiva++
+    if(attiva >= imgList.length){
+        attiva = 0;
+    }
+    opacityDom[attiva].classList.add('opacity');
+    imgList[attiva].classList.add('show');
+}, 2000);
+
+document.getElementById('stopPlay').addEventListener('click', 
+    function(){
+        clearInterval(clock);
+    }
+);
+
+document.getElementById('startPlay').addEventListener('click', 
+    function(){
+        clock = setInterval(function () {
+            opacityDom[attiva].classList.remove('opacity');
+            imgList[attiva].classList.remove('show');
+            attiva++
+            if(attiva >= imgList.length){
+                attiva = 0;
+            }
+            opacityDom[attiva].classList.add('opacity');
+            imgList[attiva].classList.add('show');
+        }, 2000);
+        
+    }
+);
+
 
 
 const downDom = document.querySelector('.down');

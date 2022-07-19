@@ -18,6 +18,7 @@ body{
 .wrapper{
     width: 50%;
     position: relative;
+    text-align: center;
 }
 
 img{
@@ -100,4 +101,13 @@ img{
 .opacity{
     opacity: 1;
     border: 2px solid black;
+}
+
+button{
+    font-size: 30px;
+    padding: 5px 20px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    background-color: #0f0e17;
+    color: #ff8906;
 }
