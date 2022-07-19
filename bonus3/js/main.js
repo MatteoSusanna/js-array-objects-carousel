@@ -49,26 +49,11 @@ const opacityDom = document.getElementsByClassName('card')
 imgList[attiva].classList.add('show');
 opacityDom[attiva].classList.add('opacity');
 
+//gestione bottoni play stop
 let clock;
-clock = setInterval(function () {
-    opacityDom[attiva].classList.remove('opacity');
-    imgList[attiva].classList.remove('show');
-    attiva++
-    if(attiva >= imgList.length){
-        attiva = 0;
-    }
-    opacityDom[attiva].classList.add('opacity');
-    imgList[attiva].classList.add('show');
-}, 2000);
 
-document.getElementById('stopPlay').addEventListener('click', 
-    function(){
-        clearInterval(clock);
-        clock = undefined;
-    }
-);
-
-document.getElementById('startPlay').addEventListener('click', 
+        //destra
+document.getElementById('right').addEventListener('click', 
     function(){
         if (clock == undefined){
             clock = setInterval(function () {
@@ -81,14 +66,37 @@ document.getElementById('startPlay').addEventListener('click',
                 opacityDom[attiva].classList.add('opacity');
                 imgList[attiva].classList.add('show');
             }, 2000);
-
-
-        }
-        
-        
+        }       
+    }
+);
+        //sinistra
+document.getElementById('left').addEventListener('click', 
+    function(){
+        if (clock == undefined){
+            clock = setInterval(function () {
+                opacityDom[attiva].classList.remove('opacity');
+                imgList[attiva].classList.remove('show');
+                attiva--
+                if(attiva < 0){
+                    attiva = 4;
+                }
+                opacityDom[attiva].classList.add('opacity');
+                imgList[attiva].classList.add('show');
+            }, 2000);
+        }       
     }
 );
 
+
+
+document.getElementById('stopPlay').addEventListener('click', 
+    function(){
+        clearInterval(clock);
+        clock = undefined;
+    }
+);
+
+// fine bottoni play stop
 
 
 const downDom = document.querySelector('.down');
@@ -124,16 +132,10 @@ upDom.addEventListener('click',
 
         opacityDom[attiva].classList.remove('opacity');
         imgList[attiva].classList.remove('show');
-        
-        
-        
         attiva--;
-
         if(attiva < 0){
             attiva = 4;
-
         }
-
         opacityDom[attiva].classList.add('opacity');
         imgList[attiva].classList.add('show');
         
