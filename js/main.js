@@ -28,34 +28,29 @@ const arrayImg = [
     },
 ]; 
 
-
-/*
-const arrayImg =   [
-    "img/01.jpg",   // 0
-    "img/02.jpg",   // 1
-    "img/03.jpg",   // 2
-    "img/04.jpg",   // 3
-    "img/05.jpg",   // 4
-];
-*/
-
 let attiva = 0;
+const barDom = document.querySelector('.bar-down');
 
 const imgDom = document.querySelector('.wrapper-img');
 // Creo i div con le immagini nell'HTML
 for (let i = 0; i < arrayImg.length; i++ ){
+    barDom.innerHTML += `<div class="card"><img src="${arrayImg[i].url}"/></div>`
     imgDom.innerHTML += `<div class="img">
-                            <h1>${arrayImg[i].title}</h1>
+                            <h2>${arrayImg[i].title}</h2>
                             <p>${arrayImg[i].description}</p>
                             <img src="${arrayImg[i].url}"/>
                         </div>`;
 }
 
 
-const imgList = document.getElementsByClassName('img');
 
+
+
+const imgList = document.getElementsByClassName('img');
+const opacityDom = document.getElementsByClassName('card')
 
 imgList[attiva].classList.add('show');
+opacityDom[attiva].classList.add('opacity');
 
 
 
@@ -64,7 +59,7 @@ const downDom = document.querySelector('.down');
 downDom.addEventListener('click',
     function () {   
         
-
+        opacityDom[attiva].classList.remove('opacity');
         imgList[attiva].classList.remove('show');
 
         attiva++;
@@ -73,18 +68,10 @@ downDom.addEventListener('click',
             attiva = 0;
         }
 
+        opacityDom[attiva].classList.add('opacity');
         imgList[attiva].classList.add('show');
-
-
         
 
-        
-        /*
-        upDom.classList.remove('none');
-        if (attiva == imgList.length - 1){
-            downDom.classList.add('none');
-        }
-        */
         
     }
 );
@@ -95,8 +82,11 @@ const upDom = document.querySelector('.up');
 upDom.addEventListener('click',
     function () {
 
-        
+        opacityDom[attiva].classList.remove('opacity');
         imgList[attiva].classList.remove('show');
+        
+        
+        
         attiva--;
 
         if(attiva < 0){
@@ -104,15 +94,9 @@ upDom.addEventListener('click',
 
         }
 
+        opacityDom[attiva].classList.add('opacity');
         imgList[attiva].classList.add('show');
-
-
-/*
-        downDom.classList.remove('none');
-        if (attiva == 0){
-            upDom.classList.add('none');
-        }
-*/
+        
 
     }
 );

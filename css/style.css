@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: sans-serif;
+}
+
 .container{
     display: flex;
     justify-content: center;
@@ -12,8 +16,8 @@
 }
 
 .wrapper{
+    width: 50%;
     position: relative;
-
 }
 
 img{
@@ -29,6 +33,22 @@ img{
     position: relative;
 }
 
+
+
+.bar-down{
+    height: 120px;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.card{
+    width: calc(100% / 5);
+    height: 100%;
+    opacity: 0.5;
+}
+
+
 .img.show{
     display: block;
 }
@@ -39,8 +59,8 @@ img{
 
 .up{
     position:absolute;
-    top: 10px;
-    left: 50%;
+    bottom: 5%;
+    left: 5%;
     transform: translateX(-50%);
     width: 60px;
     height: 60px;
@@ -52,8 +72,8 @@ img{
 
 .down{
     position:absolute;
-    bottom: 10px;
-    left: 50%;
+    bottom: 5%;
+    left: 95%;
     transform: translateX(-50%);
     width: 60px;
     height: 60px;
@@ -63,16 +83,21 @@ img{
     border-radius: 50%;
 }
 
-.img h1{
+.img h2{
     color: white;
     position: absolute;
-    top: 0;
-    right: 5px;
+    top: 10;
+    right: 20px;
 }
 
 .img p{
     color: white;
     position: absolute;
     top: 40px;
-    right: 5px;
+    right: 20px;
+}
+
+.opacity{
+    opacity: 1;
+    border: 2px solid black;
 }
