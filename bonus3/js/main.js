@@ -42,19 +42,6 @@ for (let i = 0; i < arrayImg.length; i++ ){
                         </div>`;
 }
 
-
-
-
-/*
-        let clock = setInterval(function () {
-
-            numero++;
-            console.log(numero);
-        
-        }, 1000);
-*/
-
-
 const imgList = document.getElementsByClassName('img');
 const opacityDom = document.getElementsByClassName('card')
 
