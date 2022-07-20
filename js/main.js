@@ -67,50 +67,41 @@ opacityDom[attiva].classList.add('opacity');
 const downDom = document.querySelector('.down');
 
 downDom.addEventListener('click',
-    function () {   
-        
-        opacityDom[attiva].classList.remove('opacity');
-        imgList[attiva].classList.remove('show');
-
-        attiva++;
-
-        if(attiva >= imgList.length){
-            attiva = 0;
-        }
-
-
-        opacityDom[attiva].classList.add('opacity');
-        imgList[attiva].classList.add('show');
-
-
-        
-
-        
+    function () {       
+        right()
     }
 );
-
 
 const upDom = document.querySelector('.up');
 
 upDom.addEventListener('click',
     function () {
-
-        opacityDom[attiva].classList.remove('opacity');
-        imgList[attiva].classList.remove('show');
-        
-        
-        
-        attiva--;
-
-        if(attiva < 0){
-            attiva = 4;
-
-        }
-
-        opacityDom[attiva].classList.add('opacity');
-        imgList[attiva].classList.add('show');
-        
-
+        left()
     }
 );
+
+
+
+//funzioni per movimento destra e sinistra
+function left(){
+    opacityDom[attiva].classList.remove('opacity');
+    imgList[attiva].classList.remove('show');
+    attiva--;
+    if(attiva < 0){
+        attiva = 4;
+    }
+    opacityDom[attiva].classList.add('opacity');
+    imgList[attiva].classList.add('show');
+}
+
+function right(){
+    opacityDom[attiva].classList.remove('opacity');
+    imgList[attiva].classList.remove('show');
+    attiva++;
+    if(attiva >= imgList.length){
+        attiva = 0;
+    }
+    opacityDom[attiva].classList.add('opacity');
+    imgList[attiva].classList.add('show'); 
+}
 
